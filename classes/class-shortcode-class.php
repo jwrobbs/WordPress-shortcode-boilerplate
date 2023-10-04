@@ -23,6 +23,9 @@ class Shortcode_Class {
 	 * @return string
 	 */
 	public static function shortcode_fn( $atts, $content = null ) {
+		if ( ! \is_array( $atts ) ) {
+			$atts = array();
+		}
 		$atts = \array_change_key_case( $atts, CASE_LOWER ); // Normalize attribute keys to lowercase.
 		$atts = \shortcode_atts(
 			array( // This array holds the default values for the shortcode attributes.
